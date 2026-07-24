@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="TamagotchiWebApi.Api/TamagotchiWebApi.Api.csproj" />
+  <Project Path="TamagotchiWebApi.Application/TamagotchiWebApi.Application.csproj" />
+  <Project Path="TamagotchiWebApi.Domain/TamagotchiWebApi.Domain.csproj" />
+  <Project Path="TamagotchiWebApi.Infrastructure/TamagotchiWebApi.Infrastructure.csproj" />
+</Solution>

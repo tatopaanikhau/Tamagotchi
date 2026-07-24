@@ -1,0 +1,104 @@
+                MyApp.Api (Web API)
+            ┌────────────────────────┐
+            │ Program.cs             │
+            │ Controllers            │
+            │ Middleware             │
+            └──────────┬─────────────┘
+                       │
+                       ▼
+                 MyApp.Application
+            ┌────────────────────────┐
+            │ Services               │
+            │ DTOs                   │
+            │ Interfaces             │
+            │ Business logic         │
+            └──────────┬─────────────┘
+                       │
+                       ▼
+                    MyApp.Domain
+            ┌────────────────────────┐
+            │ Models/Entities        │
+            │ Enums                  │
+            │ Business rules         │
+            └──────────┬─────────────┘
+                       │
+                       ▼
+                MyApp.Infrastructure
+            ┌────────────────────────┐
+            │ DbContext              │
+            │ Repositories           │
+            │ Database code          │
+            │ External APIs          │
+            └────────────────────────┘
+     
+     ======= 
+     api ma chai program.cs middleware rw controllers
+     application ma services
+     domain ma models
+     infra ma repo 
+     
+     so application bata infra ma jancha with help of domain
+     
+     ==adding reference
+     cd TamagotchiWebApi.Api
+     dotnet add reference ../TamagotchiWebApi.Application ../TamagotchiWebApi.Infrastructure
+     
+     cd ../TamagotchiWebApi.Application
+     dotnet add reference ../TamagotchiWebApi.Domain
+     
+     cd ../TamagotchiWebApi.Infrastructure
+     dotnet add reference ../TamagotchiWebApi.Application
+     
+     === understanding reference 
+     controller -> service -> repo
+    
+     sooo api -> application (services) + infra (repo)
+     ani appication (services) -> Domain (models)
+     ani infra (repo) -> application (services)
+     
+   ===
+   [ Frontend / Client ]
+          │
+          │  1. Sends HTTP Request with JSON Payload (CreatePetDto)
+          ▼
+   ┌─────────────────────────────────────────────────────────────────┐
+   │ 1. API CONTROLLER                                               │
+   │    • Receives HTTP Request.                                     │
+   │    • Binds JSON to `CreatePetDto`.                              │
+   │    • Passes `CreatePetDto` to `PetService.CreatePet(...)`.      │
+   └────────────────────────────────┬────────────────────────────────┘
+                                    │
+                                    ▼
+   ┌─────────────────────────────────────────────────────────────────┐
+   │ 2. APPLICATION SERVICE                                          │
+   │    • Receives `CreatePetDto`.                                   │
+   │    • Converts DTO into a Domain Model: `var pet = new Pet(...)`.│
+   │    • Calls `IPetRepository.AddAsync(pet)`.                      │
+   └────────────────┬────────────────────────────────────────────────┘
+                    │
+                    ▼
+   ┌─────────────────────────────────────────────────────────────────┐
+   │ 3. INFRASTRUCTURE REPOSITORY                                    │
+   │    • Receives the `Pet` Domain Model.                           │
+   │    • Saves `Pet` into the Database using EF Core/SQL.           │
+   │    • Returns the saved `Pet` Domain Model (with DB-assigned ID).│
+   └────────────────┬────────────────────────────────────────────────┘
+                    │
+                    ▼
+   ┌─────────────────────────────────────────────────────────────────┐
+   │ 4. APPLICATION SERVICE (Back in control)                        │
+   │    • Receives saved `Pet` Domain Model from Repo.               │
+   │    • Maps `Pet` Domain Model ──► `PetResponseDto`.              │
+   │    • Returns `PetResponseDto` to Controller.                    │
+   └────────────────┬────────────────────────────────────────────────┘
+                    │
+                    ▼
+   ┌─────────────────────────────────────────────────────────────────┐
+   │ 5. API CONTROLLER                                               │
+   │    • Receives `PetResponseDto`.                                 │
+   │    • Wraps it in `201 Created` / `200 OK` HTTP Response.        │
+   └────────────────┬────────────────────────────────────────────────┘
+                    │
+                    │  6. Sends HTTP Response with JSON (PetResponseDto)
+                    ▼
+             [ Frontend / Client ]
