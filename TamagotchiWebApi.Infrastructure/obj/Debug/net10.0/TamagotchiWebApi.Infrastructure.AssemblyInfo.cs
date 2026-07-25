@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TamagotchiWebApi.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+47433ab1e9397dab78aeddd48bd056ab77469b3d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d8101678c9168769c0efa33342ecf220b787ef47")]
 [assembly: System.Reflection.AssemblyProductAttribute("TamagotchiWebApi.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TamagotchiWebApi.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

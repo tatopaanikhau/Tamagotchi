@@ -1,0 +1,12 @@
+/home/neos/Documents/Important/Tamagotchi/TamagotchiWebApi.Domain/bin/Debug/net10.0/TamagotchiWebApi.Domain.deps.json
+/home/neos/Documents/Important/Tamagotchi/TamagotchiWebApi.Domain/bin/Debug/net10.0/TamagotchiWebApi.Domain.dll
+/home/neos/Documents/Important/Tamagotchi/TamagotchiWebApi.Domain/bin/Debug/net10.0/TamagotchiWebApi.Domain.pdb
+/home/neos/Documents/Important/Tamagotchi/TamagotchiWebApi.Domain/obj/Debug/net10.0/TamagotchiWebApi.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/home/neos/Documents/Important/Tamagotchi/TamagotchiWebApi.Domain/obj/Debug/net10.0/TamagotchiWebApi.Domain.AssemblyInfoInputs.cache
+/home/neos/Documents/Important/Tamagotchi/TamagotchiWebApi.Domain/obj/Debug/net10.0/TamagotchiWebApi.Domain.AssemblyInfo.cs
+/home/neos/Documents/Important/Tamagotchi/TamagotchiWebApi.Domain/obj/Debug/net10.0/TamagotchiWebApi.Domain.csproj.CoreCompileInputs.cache
+/home/neos/Documents/Important/Tamagotchi/TamagotchiWebApi.Domain/obj/Debug/net10.0/TamagotchiWebApi.Domain.sourcelink.json
+/home/neos/Documents/Important/Tamagotchi/TamagotchiWebApi.Domain/obj/Debug/net10.0/TamagotchiWebApi.Domain.dll
+/home/neos/Documents/Important/Tamagotchi/TamagotchiWebApi.Domain/obj/Debug/net10.0/refint/TamagotchiWebApi.Domain.dll
+/home/neos/Documents/Important/Tamagotchi/TamagotchiWebApi.Domain/obj/Debug/net10.0/TamagotchiWebApi.Domain.pdb
+/home/neos/Documents/Important/Tamagotchi/TamagotchiWebApi.Domain/obj/Debug/net10.0/ref/TamagotchiWebApi.Domain.dll

@@ -30,7 +30,9 @@
             │ Database code          │
             │ External APIs          │
             └────────────────────────┘
-     
+     sudo docker stop tamagotchi-sql
+     sudo docker start tamagotchi-sql
+     docker rm tamagotchi-sql
      ======= 
      api ma chai program.cs middleware rw controllers
      application ma services

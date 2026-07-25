@@ -1,6 +1,6 @@
 namespace TamagotchiWebApi.Domain.Models;
 
-public class Pet
+public class Pet : BaseModel
 {
     public string Name { get; set; }
     public int Age { get; private set; } = 0;

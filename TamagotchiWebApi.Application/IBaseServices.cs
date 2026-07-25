@@ -1,9 +1,12 @@
+using TamagotchiWebApi.Domain;
+using TamagotchiWebApi.Domain.Models;
+
 namespace TamagotchiWebApi.Application;
 
-public interface IBaseServices<T> where T : class
+public interface IBaseServices<T> where T : BaseModel
 {
-    T GetById(int id);
-    T Add(T entity);
-    T Update(T entity);
-    T Delete(T entity);
+    Task<T> GetById(Guid id);
+    Task<T> Add(T entity);
+    Task<T?> Update(Guid id, string u);
+    Task Delete(Guid id);
 }

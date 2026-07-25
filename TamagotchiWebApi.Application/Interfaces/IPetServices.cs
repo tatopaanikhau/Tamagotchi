@@ -4,6 +4,6 @@ namespace TamagotchiWebApi.Application.Interfaces;
 
 public interface IPetServices : IBaseServices<Pet>
 {
-    Pet Rest();
-    Pet Walk();
+    Task<Pet> Rest();
+    Task<Pet> Walk();
 }
