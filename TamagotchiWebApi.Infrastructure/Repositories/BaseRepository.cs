@@ -19,10 +19,10 @@ public class BaseRepository<T> : IBaseRepository<T> where T : BaseModel
         return await _context.Set<T>().FindAsync(id);
     }
 
-    public Task AddAsync(T entity)
+    public async Task AddAsync(T entity)
     {
-        _context.Set<T>().AddAsync(entity);
-        return Task.CompletedTask;
+        await _context.Set<T>().AddAsync(entity);
+        
     }
     
     public async Task DeleteAsync(Guid id)
