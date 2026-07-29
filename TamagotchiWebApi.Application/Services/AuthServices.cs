@@ -78,6 +78,7 @@ public class AuthServices : IAuthServices
     {
         // to check if the email already exists
         var existingUser = await _userRepository.GetByEmail(email);
+        Console.WriteLine(existingUser.Email);
         return existingUser is not null;
     }
 

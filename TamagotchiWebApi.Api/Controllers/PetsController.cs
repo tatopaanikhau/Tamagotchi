@@ -59,4 +59,17 @@ public class PetsController : ControllerBase
         await _petServices.Delete(id);
         return Ok();
     }
+
+    [HttpGet("{id:guid}/walk")]
+    public async Task<ActionResult> Walk(Guid id)
+    {
+        var pet = await  _petServices.Walk(id);
+        return Ok(pet);
+    }
+    [HttpGet("{id:guid}/rest")]
+    public async Task<ActionResult> Rest(Guid id)
+    {
+        var pet = await  _petServices.Rest(id);
+        return Ok(pet);
+    }
 }

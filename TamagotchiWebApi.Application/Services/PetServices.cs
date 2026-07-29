@@ -1,5 +1,7 @@
 
+using System.Security.Claims;
 using TamagotchiWebApi.Application.Interfaces;
+using TamagotchiWebApi.Application.Interfaces.IRepo;
 using TamagotchiWebApi.Domain.Models;
 
 namespace TamagotchiWebApi.Application.Services;
@@ -7,19 +9,49 @@ namespace TamagotchiWebApi.Application.Services;
 public class PetServices : IPetServices
 {
     private IBaseRepository<Pet> _repo;
-    public PetServices(IBaseRepository<Pet> repo)
+    private IPetRepository<Pet> _repoPet;
+    public PetServices(IBaseRepository<Pet> repo, IPetRepository<Pet> petrepo)
     {
         _repo = repo;
+        _repoPet = petrepo;
     }
-    public Task<Pet> Rest()
+    public async Task<Pet> Rest(Guid id)
     {
-        throw new NotImplementedException();
+        var pet = await _repoPet.GetByIdAsync(id);
+        var currEnery = pet.Energy;
+        pet.Energy = currEnery + 20;
+        if (currEnery > 80)
+        {
+            pet.Hunger = false;
+            pet.Thirst = false;
+        }
+        await _repoPet.SaveChangesAsync();
+        return pet;
     }
 
-    public Task<Pet> Walk()
+    public async Task<Pet> Walk(Guid id)
     {
-        throw new NotImplementedException();
+        var pet = await _repoPet.GetByIdAsync(id);
+        var currEnery = pet.Energy;
+        pet.Energy = currEnery - 10;
+        if (currEnery < 50)
+        {
+            pet.Hunger = true;
+            pet.Thirst = true;
+        }
+        await _repoPet.SaveChangesAsync();
+        return pet;
+
     }
+
+    
+
+    public async Task<IEnumerable<Pet>> GetAll(Guid id)
+    {
+
+        return await _repoPet.GetAllAsync(id);
+    }
+    
 
     public async Task<Pet> GetById(Guid id)
     {

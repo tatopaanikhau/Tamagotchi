@@ -7,7 +7,7 @@ public class Pet : BaseModel
     public bool Hunger { get; set; } = false;
     public bool Thirst { get; set; } = false;
     public bool Bored { get; set; } = false;
-    public int Energy { get; private set; } = 100;
+    public int Energy { get; set; } = 100;
     public DateTime LastInteracted  { get; set; } = DateTime.UtcNow;
     // for tracking owner
     public Guid OwnerId { get; set; }

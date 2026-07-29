@@ -21,6 +21,7 @@ builder.Services.AddScoped<IPetServices, PetServices>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IAuthServices, AuthServices>();
 builder.Services.AddScoped<IUserRepository<User>, UserRepository>();
+builder.Services.AddScoped<IPetRepository<Pet>, PetRepository>();
 
 builder.Services.AddAuthentication(options =>
 {

@@ -19,9 +19,15 @@ public class BaseRepository<T> : IBaseRepository<T> where T : BaseModel
         return await _context.Set<T>().FindAsync(id);
     }
 
+    
+    
+
     public async Task AddAsync(T entity)
     {
         await _context.Set<T>().AddAsync(entity);
+        
+        var rows = await _context.SaveChangesAsync();
+        Console.WriteLine($"Rows affected: {rows}");
         
     }
     
